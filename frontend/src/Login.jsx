@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './style.css'
 import axios from 'axios'
  
@@ -8,11 +8,18 @@ function Login() {
         email: '',
         password: ''
     })
+    const [error, setError] = useState('')
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('', values)
-        .then(res => console.log(res))
+        axios.post('http://localhost:8081/login', values)
+        .then(res => {
+          if(res.data.Status === 'Success') {
+
+          } else {
+              setError(res.data.Error);
+          }
+        })
         .catch(err => console.log(err));
     }
 
@@ -26,7 +33,9 @@ function Login() {
           </div>
         
             <div className='p-3 rounded w-25 border loginForm'>
-        
+                <div className= 'text-danger'>
+                  {error && error}
+                </div>
                 <h2 className='text-center'>Login</h2>
                 <form onSubmit={handleSubmit}>
                     <div className='mb-3'>
