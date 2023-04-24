@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './style.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
  
 function Login() {
 
@@ -8,6 +9,7 @@ function Login() {
         email: '',
         password: ''
     })
+    const navigate = useNavigate()
     const [error, setError] = useState('')
 
     const handleSubmit = (event) => {
@@ -15,7 +17,7 @@ function Login() {
         axios.post('http://localhost:8081/login', values)
         .then(res => {
           if(res.data.Status === 'Success') {
-
+              navigate('/');
           } else {
               setError(res.data.Error);
           }
