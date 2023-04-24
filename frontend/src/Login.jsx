@@ -35,9 +35,7 @@ function Login() {
           </div>
         
             <div className='p-3 rounded w-25 border loginForm'>
-                <div className= 'text-danger'>
-                  {error && error}
-                </div>
+                
                 <h2 className='text-center'>Login</h2>
                 <form onSubmit={handleSubmit}>
                     <div className='mb-3'>
@@ -51,8 +49,10 @@ function Login() {
                           onChange={e => setValues({...values, password: e.target.value})} className='form-control rounded-0' />
                     </div>
                     <button type='submit' className='btn btn-success w-100 rounded-0'> Log in</button>
-                    <p>You are agree to our terms and policies</p>
-                    <button className='btn btn-secondary border w-100 rounded-0'>Create Account</button>
+                    
+                    <div className= 'text-danger text-center'>
+                      {error && error}
+                    </div>
                 </form>
             </div>
         </div>
