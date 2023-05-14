@@ -24,7 +24,7 @@ function Home() {
                 </div>
                 <div className='px-3 pt-2 pb-3 border shadow-sm w-25'>
                     <div className='text-center pb-1'>
-                        <h4>Salary</h4>
+                        <h4>Tasks</h4>
                     </div>
                     <hr />
                     <div className=''>
@@ -35,6 +35,30 @@ function Home() {
             {/* List of Admin */}
             <div className='mt-4 px-5 pt-3'>
                 <h3>List of Admins</h3>
+                <table className='table'>
+                    <thead>
+                        <th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </th>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <h3>List of Employees</h3>
+                <table className='table'>
+                    <thead>
+                        <th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </th>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <h3>List of Tasks</h3>
                 <table className='table'>
                     <thead>
                         <th>

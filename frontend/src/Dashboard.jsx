@@ -24,6 +24,11 @@ function Dashboard() {
                        
                     </li>
                     <li>
+                        <Link to='/task' data-bs-toggle="collapse" className="d-flex align-items-center pb-5 mb-md-1 mt-md-3 me-md-auto text-white text-decoration-none">
+                            <i className="fs-4 bi-people"></i> <span className="fs-5 ms-3 d-none d-sm-inline ">Manage Tasks</span> </Link>
+                       
+                    </li>
+                    <li>
                         <Link to='profile' className="d-flex align-items-center pb-5 mb-md-1 mt-md-3 me-md-auto text-white text-decoration-none">
                             <i className="fs-4 bi-person"></i> <span className="fs-5 ms-3 d-none d-sm-inline">Profile</span></Link>
                     </li>
@@ -41,7 +46,7 @@ function Dashboard() {
 			<div className='p-2 d-flex justify-content-center shadow'>
 						<h4>Employee Management System</h4>						
 			</div>
-			<Outlet />  	
+			<Outlet />
 		</div>
     </div>
 </div>
