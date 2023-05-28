@@ -62,7 +62,7 @@ function Home() {
                 <table className='table'>
                     <thead>
                         <th>
-                            <th>Email</th>
+                            {/* <th>Email</th> */}
                             <th>Action</th>
                         </th>
                     </thead>

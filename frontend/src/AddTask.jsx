@@ -10,21 +10,21 @@ function AddTask() {
 					<input type="text" class="form-control" id="inputName" placeholder='Enter Name' autoComplete='off'/>
 				</div>
 				<div class="col-12">
-					<label for="inputEmail4" class="form-label">Email</label>
-					<input type="email" class="form-control" id="inputEmail4" placeholder='Enter Email' autoComplete='off'/>
+					<label for="inputStartDate" class="form-label">Start Date</label>
+					<input type="date" class="form-control" id="inputStartDate" placeholder='Enter Date' autoComplete='off'/>
 				</div>
 				<div class="col-12">
-					<label for="inputPassword4" class="form-label">Password</label>
-					<input type="password" class="form-control" id="inputPassword4" placeholder='Enter Password'/>
+					<label for="inputEndDate" class="form-label">End Date</label>
+					<input type="date" class="form-control" id="inputEndDate" placeholder='Enter Date'/>
 				</div>
 				<div class="col-12">
-					<label for="inputSalary" class="form-label">Salary</label>
-					<input type="text" class="form-control" id="inputSalary" placeholder="Enter Salary" autoComplete='off'/>
+					<label for="description" class="form-label">Description</label>
+					<input type="text" class="form-control" id="description" placeholder="Enter Description" autoComplete='off'/>
 				</div>
-				<div class="col-12">
+				{/* <div class="col-12">
 					<label for="inputAddress" class="form-label">Address</label>
 					<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" autoComplete='off'/>
-				</div>
+				</div> */}
 				<div class="col-12">
 					<button type="submit" class="btn btn-primary">Create</button>
 				</div>

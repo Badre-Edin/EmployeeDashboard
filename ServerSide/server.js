@@ -4,8 +4,8 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-// import multer from 'multer'
-// import path from 'path'
+import multer from 'multer'
+import path from 'path'
 
 const app = express();
 app.use(cors());
@@ -21,18 +21,18 @@ const con = mysql.createConnection({
     database: "signup"
 })
 
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, 'public/images')
-//     },
-//     filename: (req, file, cb) => {
-//         cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
-//     }
-// })
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/images')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
+    }
+})
 
-// const upload = multer({
-//     storage: storage
-// })
+const upload = multer({
+    storage: storage
+})
 
 con.connect(function(err) {
     if(err) {
@@ -117,6 +117,14 @@ con.connect(function(err) {
 //         return res.json(result);
 //     })
 // })
+app.get('/getEmployees', (req, res) => {
+    const sql = "SELECT * FROM employee";
+    //running our query
+    con.query(sql, (err, result) => {
+        if(err) return res.json({Error: "Get employee error in sql"})
+        return res.json({Status: "Success", Result: result})
+    })
+})
 
 app.post('/login', (req, res) => {
  const sql = "SELECT * FROM users Where email = ? AND password = ?";
@@ -128,6 +136,21 @@ app.post('/login', (req, res) => {
         return res.json({Status: "Error", Error: "Wrong email or Password"});
     }
  })
+})
+
+app.post('/create',upload.single('image'), (req,res) => {
+    const sql = "INSERT INTO employee (`name`,`email`,`function`,`image`) VALUES (?)";
+    const values = [
+        req.body.name,
+        req.body.email,
+        req.body.function,
+        req.file.filename
+    ]
+    //Running our query
+    con.query(sql, [values], (err, result) => {
+        if(err) return res.json({Error: "Inside signup query"});
+        return res.json({Status: "Success"});
+    })
 })
 
 // app.post('/employeelogin', (req, res) => {
