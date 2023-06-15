@@ -1,12 +1,12 @@
 {
-    "name": "employeedashboard",
+    "name": "employee-dashboard",
     "version": "1.0.0",
     "description": "",
     "main": "server.js",
     "type": "module",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "cd serverside && nodemon server.js"
+      "start": "cd ./serverside && nodemon server.js"
     },
     "engines": {
         "node": "v16.15.1"
